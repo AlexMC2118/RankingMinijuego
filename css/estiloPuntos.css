@@ -1,5 +1,6 @@
 /*
     @author: Manuel Solís Gómez (masogo008@gmail.com)
+    @author: Alejandro Moreno Camachp (amorenocamacho.guadalupe@alumnado.fundacionloyola.net)
     @description: Archivo que pondra estilo especifico de inicio en medidas de porcentaje
     @file: estiloInicio.css
     @license: totalmente libre
@@ -32,7 +33,7 @@ form
     padding: 0.8em 2%;
     border: 10px #74552d ridge;
     text-align: center;
-    
+
     background-color: rgb(235, 172, 90);
     border-radius: 40px ;
 }

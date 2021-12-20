@@ -11,9 +11,9 @@
          */
         function __construct()
         {
-            require 'operacionesBd.php'; 
+            require 'operacionesBd.php';
             $this->operaciones = new Operaciones();
-            require 'vista.php'; 
+            require 'vista.php';
             $this->vista = new Vista();
             $this->inicio();
         }
@@ -22,10 +22,10 @@
          */
         public function inicio()
         {
-            if (isset($_POST['enviada'])) 
+            if (isset($_POST['enviada']))
             {
                 $this->verificarPartida($_POST);
-            } else 
+            } else
             {
                 $this->vista->formularioInicio();
             }
@@ -35,24 +35,20 @@
          */
         public function verificarPartida($formulario)
         {
-            if ($this->operaciones->countPartidas()->fetch_assoc()['numPartidas'] < 10) 
+            if ($this->operaciones->countPartidas()->fetch_assoc()['numPartidas'] < 10)
             {
-                // echo ' no esta el ranking entero '; //ayuda para comprobar donde entro
                 $this->guardarPartidas($formulario);
                 $this->vista->altaPuntuacion();
             }
-            else 
+            else
             {
-                // echo ' ranking entero ->'; //ayuda para comprobar donde entro
                 if ($formulario['puntos'] >= $this->operaciones->puntosMenor()->fetch_assoc()['puntos']) //si aunque este el ranking completo los puntos son mayor a la puntuacion minima del ranking
                 {
-                    // echo ' actualizado '; //ayuda para comprobar donde entro
                     $this->actualizaRanking($formulario);
                     $this->vista->altaPuntuacion();
                 }
-                else 
+                else
                 {
-                    // echo ' no actualizado '; //ayuda para comprobar donde entro
                     $this->vista->bajaPuntuacion();
                 }
             }
@@ -69,8 +65,7 @@
          */
         public function actualizaRanking($formulario)
         {
-            $this->operaciones->eliminarRankingMenor();
-            $this->operaciones->partida($formulario);
+            $this->operaciones->actualizarPartida($formulario);
         }
     }
 ?>
