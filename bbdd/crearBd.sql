@@ -6,18 +6,18 @@ USE Minijuegos_Invitados;
 CREATE TABLE  Minijuego
 (
     idMinijuego tinyint UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
-	nombre varchar(60) NOT NULL,
-    ruta varchar (3000) NOT NULL,
-    portada varchar (3000) NOT NULL,
-	fechaHora datetime  NOT NULL default NOW()
+    nombre varchar(60) NOT NULL,
+    ruta varchar (240) NOT NULL,
+    portada varchar (240) NOT NULL,
+    fechaHora datetime  NOT NULL default NOW()
 );
 -- Tabla Partida
 CREATE TABLE  Partida
 (
     idPartida int UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
     idMinijuego tinyint UNSIGNED NOT NULL,
-	nick  char(10) NOT NULL,
+    nick  char(30) NOT NULL,
     puntuacion smallint UNSIGNED NOT NULL,
     fechaHora datetime  NOT NULL default NOW(),
-    CONSTRAINT FK_idMinijuego_Partida FOREIGN KEY (idMinijuego) REFERENCES Minijuego(idMinijuego)
+    CONSTRAINT FK_idMinijuego_Partida FOREIGN KEY (idMinijuego) REFERENCES Minijuego(idMinijuego) ON DELETE CASCADE
 );
