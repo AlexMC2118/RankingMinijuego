@@ -14,14 +14,14 @@
                     <h2> PUNTOS </h2>
                     <div>
                         <label for="nick"> NICK </label>
-                        <input type="text" value="" name="nick" placeholder="Me apodan" required="required" />
+                        <input type="text" value="" name="nick" placeholder="Nick" required="required" />
                     </div>
                     <div>
                         <label for="puntos"> PUNTUACION </label>
                         <input type="number" value="" name="puntos" min="1" max="100" placeholder="000" required="required"/>
                     </div>
                     <input type="submit" value="ENVIAR" name="enviada" />
-                </form>'; 
+                </form>';
         }
         /**
          * Visualiza que su puntuacion entro en el ranking

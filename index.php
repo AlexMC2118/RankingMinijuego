@@ -4,7 +4,7 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title> Ranking </title>
+        <title> Crud puntuación </title>
     		<link rel="stylesheet" type="text/css" href="css/estiloGeneral.css" />
     		<link rel="stylesheet" type="text/css" href="css/estiloPuntos.css" />
     </head>
