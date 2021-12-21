@@ -1,4 +1,4 @@
-<?php
+partida<?php
   /**
    * Esta clase se usara para emplear los metodos necesarios en un crud: buscamos, eleminamos, modificamos, añadimos y vemos una lista
    */
@@ -20,28 +20,28 @@
 
     public function countPartidas() //Consulta encargada de contar las partidas
     {
-      $consulta = "SELECT COUNT(*) AS numPartidas FROM puntuaciones WHERE idMinijuego = 1 ;"; //Colocamos la instruccion para traer los datos de nombre, correo y id(solo funcional) de todos los empleados
+      $consulta = "SELECT COUNT(*) AS numPartidas FROM partida WHERE idMinijuego = 1 ;"; //Colocamos la instruccion para traer los datos de nombre, correo y id(solo funcional) de todos los empleados
       $this->resultado= $this->hacerConsulta($consulta); //Enviamos la consulta al metodo query del objeto conexion (mysqli) y devolvera el array con la fila pedida
       return $this->resultado;
     }
 
     public function partida($formulario) //Consulta encargada de guardar una partida
     {
-      $consulta = "INSERT INTO puntuaciones (idMinijuego, nick, puntuacion) VALUES (1, '".$formulario['nick']."',".$formulario['puntos'].");"; //Colocamos la instruccion para traer los datos de nombre, correo y id(solo funcional) de todos los empleados
+      $consulta = "INSERT INTO partida (idMinijuego, nick, puntuacion) VALUES (1, '".$formulario['nick']."',".$formulario['puntos'].");"; //Colocamos la instruccion para traer los datos de nombre, correo y id(solo funcional) de todos los empleados
       $this->resultado= $this->hacerConsulta($consulta); //Enviamos la consulta al metodo query del objeto conexion (mysqli) y devolvera el array con la fila pedida
       return $this->resultado;
     }
 
     public function puntosMenor() //Consulta encargada de ver la puntuacion minima del ranking
     {
-      $consulta = "SELECT MIN(puntuacion) as puntos FROM puntuaciones WHERE idMinijuego = 1 ;"; //Colocamos la instruccion para traer los datos de nombre, correo y id(solo funcional) de todos los empleados
+      $consulta = "SELECT MIN(puntuacion) as puntos FROM partida WHERE idMinijuego = 1 ;"; //Colocamos la instruccion para traer los datos de nombre, correo y id(solo funcional) de todos los empleados
       $this->resultado= $this->hacerConsulta($consulta); //Enviamos la consulta al metodo query del objeto conexion (mysqli) y devolvera el array con la fila pedida
       return $this->resultado;
     }
 
     public function actualizarPartida($formulario) //Consulta encargada de guardar una partida actualizandolo con id fijos
     {
-      $consulta = "UPDATE puntuaciones SET nick='".$formulario['nick']."', puntuacion=".$formulario['puntos'].", fechaHora=NOW() WHERE idPartida = (SELECT idPartida FROM puntuaciones WHERE idMinijuego = 1 AND puntuacion = (SELECT MIN(puntuacion) FROM puntuaciones WHERE idMinijuego = 1) ORDER BY fechaHora LIMIT 1);"; //Colocamos la instruccion para traer los datos de nombre, correo y id(solo funcional) de todos los empleados
+      $consulta = "UPDATE partida SET nick='".$formulario['nick']."', puntuacion=".$formulario['puntos'].", fechaHora=NOW() WHERE idPartida = (SELECT idPartida FROM partida WHERE idMinijuego = 1 AND puntuacion = (SELECT MIN(puntuacion) FROM partida WHERE idMinijuego = 1) ORDER BY fechaHora LIMIT 1);"; //Colocamos la instruccion para traer los datos de nombre, correo y id(solo funcional) de todos los empleados
       $this->resultado= $this->hacerConsulta($consulta); //Enviamos la consulta al metodo query del objeto conexion (mysqli) y devolvera el array con la fila pedida
       return $this->resultado;
     }
